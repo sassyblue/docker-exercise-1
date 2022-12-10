@@ -4,7 +4,7 @@ from pymongo import MongoClient
 import uuid
 
 #Mongo Settings
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb', 27017)
 db = client.test_database
 collection = db.test_collection
 tasks_list = db.tasks_list
