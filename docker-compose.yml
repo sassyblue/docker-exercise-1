@@ -1,0 +1,20 @@
+version: '3'
+services:
+  frontend:
+    image: httpd:latest
+    ports:
+      - '8080:80'
+    volumes:
+      - ./frontend/dist:/usr/local/apache2/htdocs
+  db:
+    image: mongo
+    ports:
+      - '27017:27017'
+  api:
+    build: . # weź z bieżącego katalogu dockerfile
+    ports:
+      - '5000:5000'
+  node:
+    image: node:14.17.5
+    volumes:
+      - ./frontend:/code

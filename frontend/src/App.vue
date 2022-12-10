@@ -35,7 +35,7 @@ export default {
   },
   mounted () {
     // fetch todo items
-    this.axios.get('http://localhost:5000/list').then((response) => {
+    this.axios.get('/list').then((response) => {
       this.ToDoItems = response.data
     }).catch(function (error) {
       console.warn('Cant connect to server and load list: ', error)
@@ -47,7 +47,7 @@ export default {
     },
     updateDoneStatus(toDoId) {
       // toggle on server
-      this.axios.post('http://localhost:5000/toggle', {
+      this.axios.post('/toggle', {
         id: toDoId
       }).then(() => {
         console.log('toggled')
@@ -60,7 +60,7 @@ export default {
     },
     deleteToDo(toDoId) {
       // delete on server
-      this.axios.post('http://localhost:5000/delete', {
+      this.axios.post('/delete', {
         id: toDoId
       }).then((resp) => {
         console.log('deleted task id: ', resp.data)

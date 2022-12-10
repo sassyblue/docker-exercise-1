@@ -10,4 +10,9 @@ Vue.use(VueAxios, axios)
 
 new Vue({
   render: h => h(App),
+  created: function() {
+    const api_ip = process.env.VUE_APP_API_SERVER_IP;
+    const api_port = process.env.VUE_APP_API_SERVER_PORT;
+    this.axios.defaults.baseURL = `http://${api_ip}:${api_port}`;
+  }
 }).$mount('#app')

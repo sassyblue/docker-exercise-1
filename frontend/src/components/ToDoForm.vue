@@ -28,10 +28,8 @@ export default {
       }
 
       this.$emit('todo-added', this.label);
-
-      const api = 'http://localhost:5000/add'
       // inform server about new task
-      this.axios.post(api, {
+      this.axios.post('/add', {
         label: this.label,
         done: false,
       }).then((response) => {
